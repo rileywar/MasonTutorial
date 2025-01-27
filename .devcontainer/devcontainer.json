@@ -1,0 +1,26 @@
+{
+  "name": "Go Dev Container",
+  "image": "golang:1.20",
+  "features": {
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "1.20"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "go.toolsManagement.autoUpdate": true,
+        "go.useLanguageServer": true,
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "golang.Go"
+      ]
+    }
+  },
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "postCreateCommand": "go mod tidy",
+  "remoteUser": "root"
+}
